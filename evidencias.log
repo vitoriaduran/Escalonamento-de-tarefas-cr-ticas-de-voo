@@ -235,3 +235,47 @@ t=19 T_Baixa
 [?2004lexit
 
 Script done on 2026-09-04 13:53:28-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-04 15:17:03-03:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="158" LINES="5"]
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ w[Kdate
+[?2004lFri Sep  4 15:17:06 -03 2026
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ whoami
+[?2004lgabyv
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pwd
+[?2004l/home/gabyv/vgjda2
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make clean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+gcc -Wall -Wextra -std=c11 -O2 -o scheduler scheduler.o
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./escalonador_debug rate entrada.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./escalonador_debug rate entrada.txt
+[?2004lbash: ./escalonador_debug: No such file or directory
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ ./schedue[Kler rate entrada.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mgcc -Wall -Wextra -std=c11 -O2 -DDEBUG_TRACE scheduler.c -o scheduler[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -std=c11 -O2 -DDEBUG_TRACE scheduler.c -o scheduler
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate entrada.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate entrada.txt
+[?2004l--- trace de depuracao ---
+t=0 T1
+t=1 T1
+t=2 T2
+t=3 T2
+t=4 T2
+t=5 T1
+t=6 T1
+t=7 T2
+t=8 T2
+t=9 T2
+t=10 T1
+t=11 T1
+t=12 idle
+t=13 idle
+t=14 T2
+t=15 T1
+t=16 T1
+t=17 T2
+t=18 T2
+t=19 idle
+[T1] perdidos=0 completas=4 mortas=0
+[T2] perdidos=0 completas=3 mortas=0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-04 15:24:17-03:00 [COMMAND_EXIT_CODE="0"]

@@ -169,13 +169,16 @@ int analisar_arquivo_entrada (const char *caminho, int *tempo_total, Tarefa tare
 
 }
 
+//avalia a prioridade entre duas tarefas i e j
 static int tem_prioridade_maior(const char *algoritmo, const Tarefa tarefas[], const EstadoTarefa estados[], int i, int j) {
+    //menor periodo estatico tem a maior prioridade
     if (strcmp(algoritmo, "rate") == 0) {
         if (tarefas[i].periodo != tarefas[j].periodo) {
 
             return tarefas[i].periodo < tarefas[j].periodo;
         }
     }else {
+        //menor prazo absoluto possoui maior prioridade
         if(estados[i].prazo_absoluto != estados[j].prazo_absoluto) {
 
             return estados[i].prazo_absoluto < estados[j].prazo_absoluto;
@@ -197,44 +200,53 @@ static void simular(const char *algoritmo, const Tarefa tarefas[], int num_taref
 
     }
 
+    //simulacao tempo discreto (tick-a-tick de t=0 ate t=tempo_total-1)
     for (int t = 0; t < tempo_total; t++) {
+        //Verifica estouros de deadline da instancia do ciclo anterior que vence em t
+        //Esta checagem deve ocorrer antes de renovar a tarefa para o proximo ciclo 
         for (int i = 0; i < num_tarefas; i++) {
-            if (t % tarefas[i].periodo == 0) {
-                estados[i].chegou = 1;
-                estados[i].rajada_restante = tarefas[i].rajada;
-                estados[i].prazo_absoluto = t + tarefas[i].prazo_relativo;
-                estados[i].instante_chegada = t;
+            if (estados[i].chegou && estados[i].rajada_restante > 0 && estados[i].prazo_absoluto == t) {
+                stats[i].prazo_perdidos++; // Incrementa a falha de deadline registrada no instante t
+                estados[i].chegou = 0;// Invalida a instancia antiga que nao concluiu a tempo
             }
         }
 
-        for (int i = 0; i < num_tarefas; i++) {
-            if (estados[i].chegou && estados[i].rajada_restante > 0 &&
-                estados[i].prazo_absoluto == t) {
-                stats[i].prazo_perdidos++;
-                estados[i].chegou = 0;
+        //Chegada de novas instancias de tarefas para o ciclo que inicia em t
+       for (int i = 0; i < num_tarefas; i++) {
+         // Todo instante t multiplo do periodo marca a chegada de uma nova instancia
+            if (t % tarefas[i].periodo == 0) { 
+                estados[i].chegou = 1;                                     
+                estados[i].rajada_restante = tarefas[i].rajada;         
+                estados[i].prazo_absoluto = t + tarefas[i].prazo_relativo;  // Recalcula o deadline absoluto dinamico (t + D)
+                estados[i].instante_chegada = t;                            // Grava o tempo de chegada para rastreio
             }
         }
 
+        //Seleciona qual tarefa pronta com rajada pendente executara no slot
         int selecionada = -1;
         for (int i = 0; i < num_tarefas; i++) {
             if (estados[i].chegou && estados[i].rajada_restante > 0) {
+                // Se for a primeira candidata ou se tiver maior prioridade que a candidata atual
                 if (selecionada == -1 || tem_prioridade_maior(algoritmo, tarefas, estados, i, selecionada)) {
                     selecionada = i;
                 }
             }
         }
 
-        quem_executou[t] = selecionada;
+        quem_executou[t] = selecionada; //registra qual tarefa qual o uso da cpu do instate
 
+        //Executar a tarefa selecionada por 1 unidade de tempo
         if (selecionada != -1) {
-            estados[selecionada].rajada_restante--;
+            estados[selecionada].rajada_restante--;  
+
+            // Se a rajada chegou a zero, a tarefa concluiu sua execucao dentro do prazo
             if (estados[selecionada].rajada_restante == 0) {
-                stats[selecionada].execucoes_completas++;
-                estados[selecionada].chegou = 0;
+                stats[selecionada].execucoes_completas++; 
+                estados[selecionada].chegou = 0;           
             }
         }
     }
-
+    //contagem de tarefas mortas
     for (int i = 0; i < num_tarefas; i++) {
         if (estados[i].chegou && estados[i].rajada_restante > 0) {
             stats[i].mortas++;

@@ -1,0 +1,139 @@
+Script started on 2026-09-04 10:37:41-03:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="90" LINES="15"]
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ p[Kdate
+[?2004lFri Sep  4 10:37:45 -03 2026
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pw[K[Kwhoami
+[?2004lgabyv
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pwd7[K
+[?2004l/home/gabyv/vgjda2
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make clean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+[01m[Kscheduler.c:[m[K In function ‘[01m[Kanalisar_arquivo_entrada[m[K’:
+[01m[Kscheduler.c:56:22:[m[K [01;31m[Kerror: [m[K‘[01m[Kcaminho[m[K’ undeclared (first use in this function); did you mean ‘[01m[Kcamainho[m[K’?
+   56 |     FILE *fp = fopen([01;31m[Kcaminho[m[K, "r");
+      |                      [01;31m[K^~~~~~~[m[K
+      |                      [32m[Kcamainho[m[K
+[01m[Kscheduler.c:56:22:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[Kscheduler.c:66:12:[m[K [01;31m[Kerror: [m[Kimplicit declaration of function ‘[01m[Kfgests[m[K’; did you mean ‘[01m[Kfgets[m[K’? [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+   66 |     while ([01;31m[Kfgests[m[K(linha, sizeof(linha), fp) != NULL){
+      |            [01;31m[K^~~~~~[m[K
+      |            [32m[Kfgets[m[K
+[01m[Kscheduler.c:66:45:[m[K [01;35m[Kwarning: [m[Kcomparison between pointer and integer
+   66 |     while (fgests(linha, sizeof(linha), fp) [01;35m[K!=[m[K NULL){
+      |                                             [01;35m[K^~[m[K
+In file included from [01m[Kscheduler.c:4[m[K:
+[01m[Kscheduler.c:73:16:[m[K [01;31m[Kerror: [m[Kexpected expression before ‘[01m[K)[m[K’ token
+   73 |         while ([01;31m[Kisspace[m[K((unsigned char)) *aparada){
+      |                [01;31m[K^~~~~~~[m[K
+[01m[Kscheduler.c:84:17:[m[K [01;31m[Kerror: [m[Kimplicit declaration of function ‘[01m[Kfprinf[m[K’; did you mean ‘[01m[Kfprintf[m[K’? [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+   84 |                 [01;31m[Kfprinf[m[K(stderr,"Erro: linha %d deveria conter o tempo total de simulacao (inteiro positivo)\n",
+      |                 [01;31m[K^~~~~~[m[K
+      |                 [32m[Kfprintf[m[K
+[01m[Kscheduler.c:117:14:[m[K [01;31m[Kerror: [m[Kimplicit declaration of function ‘[01m[Keh_inteiro_positivo[m[K’; did you mean ‘[01m[Keh_int_positivo[m[K’? [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+  117 |         if (![01;31m[Keh_inteiro_positivo[m[K(periodo_temp) ||
+      |              [01;31m[K^~~~~~~~~~~~~~~~~~~[m[K
+      |              [32m[Keh_int_positivo[m[K
+[01m[Kscheduler.c:142:21:[m[K [01;31m[Kerror: [m[Kincompatible types when initializing type ‘[01m[KTarefa *[m[K’ using type ‘[01m[KTarefa[m[K’
+  142 |         Tarefa *t = [01;31m[Ktarefas[m[K[*num_tarefas];
+      |                     [01;31m[K^~~~~~~[m[K
+[01m[Kscheduler.c:143:32:[m[K [01;31m[Kerror: [m[K‘[01m[KTAMANHO_MAX_NOME[m[K’ undeclared (first use in this function); did you mean ‘[01m[KTAMANHO_NOME[m[K’?
+  143 |         strncpy(t->nome, nome, [01;31m[KTAMANHO_MAX_NOME[m[K - 1);
+      |                                [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                                [32m[KTAMANHO_NOME[m[K
+[01m[Kscheduler.c:151:28:[m[K [01;31m[Kerror: [m[Kcalled object ‘[01m[Knum_tarefas[m[K’ is not a function or function pointer
+  151 |         t->indice_ordem = *[01;31m[Knum_tarefas[m[K //armazena a ordem de leitura
+      |                            [01;31m[K^~~~~~~~~~~[m[K
+[01m[Kscheduler.c:55:94:[m[K [01;36m[Knote: [m[Kdeclared here
+   55 | trada (const char *camainho, int *tempo_total, Tarefa tarefas[], [01;36m[Kint *num_tarefas[m[K){
+      |                                                                  [01;36m[K~~~~~^~~~~~~~~~~[m[K
+[01m[Kscheduler.c:55:43:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Kcamainho[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-unused-parameter-Wunused-parameter]8;;[m[K]
+   55 | int analisar_arquivo_entrada ([01;35m[Kconst char *camainho[m[K, int *tempo_total, Tarefa tarefas[], int *num_tarefas){
+      |                               [01;35m[K~~~~~~~~~~~~^~~~~~~~[m[K
+[01m[Kscheduler.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kscheduler.c:190:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kcaminho_entrada[m[K’ undeclared (first use in this function); did you mean ‘[01m[Kcamainho_entrada[m[K’?
+  190 |     if (analisar_arquivo_entrada([01;31m[Kcaminho_entrada[m[K, &tempo_total, tarefas, &num_tarefas) != 0) {
+      |                                  [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |                                  [32m[Kcamainho_entrada[m[K
+[01m[Kscheduler.c:194:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kalgoritimo[m[K’ undeclared (first use in this function); did you mean ‘[01m[Kalgoritmo[m[K’?
+  194 |     (void)[01;31m[Kalgoritimo[m[K;
+      |           [01;31m[K^~~~~~~~~~[m[K
+      |           [32m[Kalgoritmo[m[K
+[01m[Kscheduler.c:178:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcamainho_entrada[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-unused-variable-Wunused-variable]8;;[m[K]
+  178 |     const char *[01;35m[Kcamainho_entrada[m[K = argv[2];
+      |                 [01;35m[K^~~~~~~~~~~~~~~~[m[K
+make: *** [Makefile:14: scheduler.o] Error 1
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make cç[Klean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+[01m[Kscheduler.c:[m[K In function ‘[01m[Kanalisar_arquivo_entrada[m[K’:
+[01m[Kscheduler.c:110:13:[m[K [01;31m[Kerror: [m[Kimplicit declaration of function ‘[01m[Kfprinf[m[K’; did you mean ‘[01m[Kfprintf[m[K’? [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+  110 |             [01;31m[Kfprinf[m[K(stderr, "Erro: linha %d malformada, esperado 'NOME PERIODO DEADLINE BURST'\n",
+      |             [01;31m[K^~~~~~[m[K
+      |             [32m[Kfprintf[m[K
+[01m[Kscheduler.c:142:21:[m[K [01;31m[Kerror: [m[K‘[01m[Ktarefa[m[K’ undeclared (first use in this function); did you mean ‘[01m[KTarefa[m[K’?
+  142 |         Tarefa *t = [01;31m[Ktarefa[m[K[*num_tarefas];
+      |                     [01;31m[K^~~~~~[m[K
+      |                     [32m[KTarefa[m[K
+[01m[Kscheduler.c:142:21:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[Kscheduler.c:55:77:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktarefas[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-unused-parameter-Wunused-parameter]8;;[m[K]
+   55 | alisar_arquivo_entrada (const char *caminho, int *tempo_total, [01;35m[KTarefa tarefas[][m[K, int *num_tarefas){
+      |                                                                [01;35m[K~~~~~~~^~~~~~~~~[m[K
+[01m[Kscheduler.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kscheduler.c:190:34:[m[K [01;31m[Kerror: [m[K‘[01m[Kcaminho_entrada[m[K’ undeclared (first use in this function); did you mean ‘[01m[Kcamainho_entrada[m[K’?
+  190 |     if (analisar_arquivo_entrada([01;31m[Kcaminho_entrada[m[K, &tempo_total, tarefas, &num_tarefas) != 0) {
+      |                                  [01;31m[K^~~~~~~~~~~~~~~[m[K
+      |                                  [32m[Kcamainho_entrada[m[K
+[01m[Kscheduler.c:194:11:[m[K [01;31m[Kerror: [m[K‘[01m[Kalgortimo[m[K’ undeclared (first use in this function); did you mean ‘[01m[Kalgoritmo[m[K’?
+  194 |     (void)[01;31m[Kalgortimo[m[K;
+      |           [01;31m[K^~~~~~~~~[m[K
+      |           [32m[Kalgoritmo[m[K
+[01m[Kscheduler.c:178:17:[m[K [01;35m[Kwarning: [m[Kunused variable ‘[01m[Kcamainho_entrada[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-unused-variable-Wunused-variable]8;;[m[K]
+  178 |     const char *[01;35m[Kcamainho_entrada[m[K = argv[2];
+      |                 [01;35m[K^~~~~~~~~~~~~~~~[m[K
+make: *** [Makefile:14: scheduler.o] Error 1
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make clean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+[01m[Kscheduler.c:[m[K In function ‘[01m[Kanalisar_arquivo_entrada[m[K’:
+[01m[Kscheduler.c:110:13:[m[K [01;31m[Kerror: [m[Kimplicit declaration of function ‘[01m[Kfprinf[m[K’; did you mean ‘[01m[Kfprintf[m[K’? [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+  110 |             [01;31m[Kfprinf[m[K(stderr, "Erro: linha %d malformada, esperado 'NOME PERIODO DEADLINE BURST'\n",
+      |             [01;31m[K^~~~~~[m[K
+      |             [32m[Kfprintf[m[K
+[01m[Kscheduler.c:142:21:[m[K [01;31m[Kerror: [m[K‘[01m[Ktarefa[m[K’ undeclared (first use in this function); did you mean ‘[01m[KTarefa[m[K’?
+  142 |         Tarefa *t = [01;31m[Ktarefa[m[K[*num_tarefas];
+      |                     [01;31m[K^~~~~~[m[K
+      |                     [32m[KTarefa[m[K
+[01m[Kscheduler.c:142:21:[m[K [01;36m[Knote: [m[Keach undeclared identifier is reported only once for each function it appears in
+[01m[Kscheduler.c:55:77:[m[K [01;35m[Kwarning: [m[Kunused parameter ‘[01m[Ktarefas[m[K’ [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wno-unused-parameter-Wunused-parameter]8;;[m[K]
+   55 | alisar_arquivo_entrada (const char *caminho, int *tempo_total, [01;35m[KTarefa tarefas[][m[K, int *num_tarefas){
+      |                                                                [01;35m[K~~~~~~~^~~~~~~~~[m[K
+make: *** [Makefile:14: scheduler.o] Error 1
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make clean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+gcc -Wall -Wextra -std=c11 -O2 -o scheduler scheduler.o
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat << 'EOF' > voo.txt[27mcat << 'EOF' > voo.txt
+[?2004l[?2004h> [K> 100
+[?2004l[?2004h> ATT 20 8 12
+[?2004l[?2004h> EOF
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat << 'EOF' > invalido.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccat << 'EOF' > invalido.txt
+[?2004l[?2004h> 100
+[?2004l[?2004h> ATTA 2[K[K[K 20 8 12[K> ATT 20 8 12
+[?2004l[?2004h> E[KEOF
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ ./scheduler rate voo.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ echo ""C"o"d"i"g"o" "d"e" "s"a"i"d"a":" "$"?"[C
+[?2004lCodigo de saida: 0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ ./scheduler fifo voo.txt
+[?2004lErro: algoritmo 'fifo' invalido. Use 'rate' ou 'edf'.
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ ./scheduler rae[Kte
+[?2004lUso: ./scheduler <rate|edf> <arquivo_de_entrada>
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ ./scheduler edf invalido.txt
+[?2004lErro: tarefa 'ATT' (linha 2) viola a restricao C <= D <= P
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ exit [K
+[?2004lexit
+
+Script done on 2026-09-04 11:03:49-03:00 [COMMAND_EXIT_CODE="1"]

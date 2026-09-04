@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 #define TAMANHO_NOME 32
 #define MAX_TAREFAS 64
@@ -52,7 +53,7 @@ static int eh_int_positivo(const char *s){
 
 //le o arquivo de entrada, valida e preenche
 
-int analisar_arquivo_entrada (const char *camainho, int *tempo_total, Tarefa tarefas[], int *num_tarefas){
+int analisar_arquivo_entrada (const char *caminho, int *tempo_total, Tarefa tarefas[], int *num_tarefas){
     FILE *fp = fopen(caminho, "r");
     if (fp == NULL){
         fprintf(stderr, "Erro: nao foi possivel abrir o arquivo de entrada '%s'\n", caminho);
@@ -63,14 +64,14 @@ int analisar_arquivo_entrada (const char *camainho, int *tempo_total, Tarefa tar
     int tem_tempo_total = 0;
     *num_tarefas = 0;
 
-    while (fgests(linha, sizeof(linha), fp) != NULL){
+    while (fgets(linha, sizeof(linha), fp) != NULL){
         num_linha++;
 
         linha[strcspn(linha, "\r\n")] = '\0';
 
         //pula linha em branco
         char *aparada = linha;
-        while (isspace((unsigned char)) *aparada){
+        while (isspace((unsigned char) *aparada)){
             aparada ++;
         }
         if (*aparada == '\0'){
@@ -81,7 +82,7 @@ int analisar_arquivo_entrada (const char *camainho, int *tempo_total, Tarefa tar
         if(!tem_tempo_total){
             //olha se é inteiro
             if (!eh_int_positivo(aparada)){
-                fprinf(stderr,"Erro: linha %d deveria conter o tempo total de simulacao (inteiro positivo)\n",
+                fprintf(stderr,"Erro: linha %d deveria conter o tempo total de simulacao (inteiro positivo)\n",
                         num_linha);
                 fclose(fp);
                 return 1;
@@ -107,16 +108,16 @@ int analisar_arquivo_entrada (const char *camainho, int *tempo_total, Tarefa tar
 
         //se o scanf nao leu exatamente os 4 valores
         if (campos != 4){
-            fprinf(stderr, "Erro: linha %d malformada, esperado 'NOME PERIODO DEADLINE BURST'\n",
+            fprintf(stderr, "Erro: linha %d malformada, esperado 'NOME PERIODO DEADLINE BURST'\n",
                     num_linha);
             fclose(fp);
             return 1;
         }
 
         //verifica se é positivo
-        if (!eh_inteiro_positivo(periodo_temp) ||
-            !eh_inteiro_positivo(prazo_temp) ||
-            !eh_inteiro_positivo(rajada_temp)) {
+        if (!eh_int_positivo(periodo_temp) ||
+            !eh_int_positivo(prazo_temp) ||
+            !eh_int_positivo(rajada_temp)) {
             fprintf(stderr,
                     "Erro: linha %d contem valor nao numerico ou nao positivo\n",
                     num_linha);
@@ -139,16 +140,16 @@ int analisar_arquivo_entrada (const char *camainho, int *tempo_total, Tarefa tar
         }
 
         //ponteiro para a pos de tarefas
-        Tarefa *t = tarefas[*num_tarefas];
-        strncpy(t->nome, nome, TAMANHO_MAX_NOME - 1);
-        t->nome[TAMANHO_MAX_NOME - 1] = '\0';
+        Tarefa *t = &tarefas[*num_tarefas];
+        strncpy(t->nome, nome, TAMANHO_NOME - 1);
+        t->nome[TAMANHO_NOME - 1] = '\0';
 
         //preenche com os valores int convertidos
         t->periodo = periodo;
         t->prazo_relativo = prazo;
         t->rajada = rajada;
 
-        t->indice_ordem = *num_tarefas //armazena a ordem de leitura
+        t->indice_ordem = *num_tarefas; //armazena a ordem de leitura
         (*num_tarefas)++;
     }
 
@@ -160,9 +161,40 @@ int analisar_arquivo_entrada (const char *camainho, int *tempo_total, Tarefa tar
 
     //se nao encontrou nenhuma tarefa valida apos o tempo total
     if (*num_tarefas == 0){
-        fprinf(stderr, "Erro: nenhuma tarefa encontrada no arquivo de entrada\n");
+        fprintf(stderr, "Erro: nenhuma tarefa encontrada no arquivo de entrada\n");
         return 1;
     }
+
+    return 0;
+
+}
+
+int main(int argc, char *argv[]){
+    if (argc != 3){
+        fprintf(stderr, "Uso: %s <rate|edf> <arquivo_de_entrada>\n", argv[0]);
+        return 1;
+    }
+    //armazena os ponteitos p/ o nome do algoritimo e do arquivo passado na cli
+    const char *algoritmo = argv[1];
+    const char *caminho_entrada = argv[2];
+
+    //valida se é igual ao rate ou edf
+    if (strcmp(algoritmo, "rate") != 0 && strcmp(algoritmo, "edf") != 0) {
+        fprintf(stderr, "Erro: algoritmo '%s' invalido. Use 'rate' ou 'edf'.\n", algoritmo);
+        return 1;
+    }
+
+    int tempo_total = 0;
+    Tarefa tarefas[MAX_TAREFAS];
+    int num_tarefas = 0;
+
+    if (analisar_arquivo_entrada(caminho_entrada, &tempo_total, tarefas, &num_tarefas) != 0) {
+        return 1;
+    }
+
+    (void)algoritmo;
+    (void)tempo_total;
+    (void) num_tarefas;
 
     return 0;
 

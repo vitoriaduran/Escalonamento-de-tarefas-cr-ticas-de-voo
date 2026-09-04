@@ -169,6 +169,79 @@ int analisar_arquivo_entrada (const char *caminho, int *tempo_total, Tarefa tare
 
 }
 
+static int tem_prioridade_maior(const char *algoritmo, const Tarefa tarefas[], const EstadoTarefa estados[], int i, int j) {
+    if (strcmp(algoritmo, "rate") == 0) {
+        if (tarefas[i].periodo != tarefas[j].periodo) {
+
+            return tarefas[i].periodo < tarefas[j].periodo;
+        }
+    }else {
+        if(estados[i].prazo_absoluto != estados[j].prazo_absoluto) {
+
+            return estados[i].prazo_absoluto < estados[j].prazo_absoluto;
+        }
+    }
+
+    return tarefas[i].indice_ordem < tarefas[j].indice_ordem;
+}
+
+static void simular(const char *algoritmo, const Tarefa tarefas[], int num_tarefas, int tempo_total, int *quem_executou, EstadoTarefa estados[], EstatisticaTarefa stats[]) {
+    for (int i = 0; i < num_tarefas; i++) {
+        estados[i].chegou = 0;
+        estados[i].rajada_restante = 0;
+        estados[i].prazo_absoluto = 0;
+        estados[i].instante_chegada = 0;
+        stats[i].prazo_perdidos = 0;
+        stats[i].execucoes_completas = 0;
+        stats[i].mortas = 0;
+
+    }
+
+    for (int t = 0; t < tempo_total; t++) {
+        for (int i = 0; i < num_tarefas; i++) {
+            if (t % tarefas[i].periodo == 0) {
+                estados[i].chegou = 1;
+                estados[i].rajada_restante = tarefas[i].rajada;
+                estados[i].prazo_absoluto = t + tarefas[i].prazo_relativo;
+                estados[i].instante_chegada = t;
+            }
+        }
+
+        for (int i = 0; i < num_tarefas; i++) {
+            if (estados[i].chegou && estados[i].rajada_restante > 0 &&
+                estados[i].prazo_absoluto == t) {
+                stats[i].prazo_perdidos++;
+                estados[i].chegou = 0;
+            }
+        }
+
+        int selecionada = -1;
+        for (int i = 0; i < num_tarefas; i++) {
+            if (estados[i].chegou && estados[i].rajada_restante > 0) {
+                if (selecionada == -1 || tem_prioridade_maior(algoritmo, tarefas, estados, i, selecionada)) {
+                    selecionada = i;
+                }
+            }
+        }
+
+        quem_executou[t] = selecionada;
+
+        if (selecionada != -1) {
+            estados[selecionada].rajada_restante--;
+            if (estados[selecionada].rajada_restante == 0) {
+                stats[selecionada].execucoes_completas++;
+                estados[selecionada].chegou = 0;
+            }
+        }
+    }
+
+    for (int i = 0; i < num_tarefas; i++) {
+        if (estados[i].chegou && estados[i].rajada_restante > 0) {
+            stats[i].mortas++;
+        }
+    }
+}
+
 int main(int argc, char *argv[]){
     if (argc != 3){
         fprintf(stderr, "Uso: %s <rate|edf> <arquivo_de_entrada>\n", argv[0]);
@@ -192,10 +265,37 @@ int main(int argc, char *argv[]){
         return 1;
     }
 
-    (void)algoritmo;
-    (void)tempo_total;
-    (void) num_tarefas;
+    int *quem_executou = malloc(sizeof(int) * (size_t)tempo_total);
+    if (quem_executou == NULL) {
+        fprintf(stderr, "Erro: memoria insuficiente para simular %d instantes\n", tempo_total);
+        return 1;
+    }
 
+    EstadoTarefa estados[MAX_TAREFAS];
+    EstatisticaTarefa stats[MAX_TAREFAS];
+
+    
+    simular(algoritmo, tarefas, num_tarefas, tempo_total, quem_executou, estados, stats);
+
+#ifdef DEBUG_TRACE
+    fprintf(stderr, "--- trace de depuracao ---\n");
+    for (int t = 0; t < tempo_total; t++) {
+        if (quem_executou[t] == -1) {
+            fprintf(stderr, "t=%d idle\n", t);
+        } else {
+            fprintf(stderr, "t=%d %s\n", t, tarefas[quem_executou[t]].nome);
+        }
+    }
+    for (int i = 0; i < num_tarefas; i++) {
+        fprintf(stderr, "[%s] perdidos=%d completas=%d mortas=%d\n",
+                tarefas[i].nome, stats[i].prazo_perdidos,
+                stats[i].execucoes_completas, stats[i].mortas);
+    }
+#endif
+
+
+    (void)estados;
+    free(quem_executou);
     return 0;
 
 }

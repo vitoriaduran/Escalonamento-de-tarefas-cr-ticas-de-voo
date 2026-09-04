@@ -137,3 +137,101 @@ gcc -Wall -Wextra -std=c11 -O2 -o scheduler scheduler.o
 [?2004lexit
 
 Script done on 2026-09-04 11:03:49-03:00 [COMMAND_EXIT_CODE="1"]
+Script started on 2026-09-04 13:29:44-03:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="90" LINES="15"]
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ date
+[?2004lFri Sep  4 13:29:47 -03 2026
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ whoami
+[?2004lgabyv
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pwd
+[?2004l/home/gabyv/vgjda2
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make clen[Kan
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make 
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+[01m[Kscheduler.c:[m[K In function ‘[01m[Kmain[m[K’:
+[01m[Kscheduler.c:277:90:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K#[m[K’ in program
+  277 | mo, tarefas, num_tarefas, tempo_total, quem_executou, estados, stats);[01;31m[K#[m[Kifdef DEBUG_TRACE
+      |                                                                       [01;31m[K^[m[K
+[01m[Kscheduler.c:277:91:[m[K [01;31m[Kerror: [m[Kunknown type name ‘[01m[Kifdef[m[K’
+  277 | o, tarefas, num_tarefas, tempo_total, quem_executou, estados, stats);#[01;31m[Kifdef[m[K DEBUG_TRACE
+      |                                                                       [01;31m[K^~~~~[m[K
+[01m[Kscheduler.c:278:5:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K=[m[K’, ‘[01m[K,[m[K’, ‘[01m[K;[m[K’, ‘[01m[Kasm[m[K’ or ‘[01m[K__attribute__[m[K’ before ‘[01m[Kfprintf[m[K’
+  278 |     [01;31m[Kfprintf[m[K(stderr, "--- trace de depuracao ---\n");
+      |     [01;31m[K^~~~~~~[m[K
+[01m[Kscheduler.c:290:6:[m[K [01;31m[Kerror: [m[Kstray ‘[01m[K#[m[K’ in program
+  290 |     }[01;31m[K#[m[Kendif
+      |      [01;31m[K^[m[K
+[01m[Kscheduler.c:290:7:[m[K [01;31m[Kerror: [m[Kimplicit declaration of function ‘[01m[Kendif[m[K’ [[01;31m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wimplicit-function-declaration-Wimplicit-function-declaration]8;;[m[K]
+  290 |     }#[01;31m[Kendif[m[K
+      |       [01;31m[K^~~~~[m[K
+[01m[Kscheduler.c:293:6:[m[K [01;31m[Kerror: [m[Kexpected expression before ‘[01m[Kvoid[m[K’
+  293 |     ([01;31m[Kvoid[m[K)estados;
+      |      [01;31m[K^~~~[m[K
+[01m[Kscheduler.c:293:11:[m[K [01;31m[Kerror: [m[Kexpected ‘[01m[K;[m[K’ before ‘[01m[Kestados[m[K’
+  293 |     (void)[01;31m[Ke[m[K[32m[Kstados[m[K;
+      |           [01;31m[K^[m[K[32m[K~~~~~~[m[K
+      |           [32m[K;[m[K
+make: *** [Makefile:14: scheduler.o] Error 1
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ mka[K[Kake clean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ 
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+gcc -Wall -Wextra -std=c11 -O2 -o scheduler scheduler.o
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-04 13:32:33-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-04 13:43:47-03:00 [TERM="xterm-256color" TTY="/dev/pts/7" COLUMNS="177" LINES="15"]
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ date
+[?2004lFri Sep  4 13:43:50 -03 2026
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ whoami[[K
+[?2004lgabyv
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pwd
+[?2004l/home/gabyv/vgjda2
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate teste_deadline.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[1P./scheduler rate teste_deadline.tx[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kmake [K
+[?2004lmake: Nothing to be done for 'all'.
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate teste_deadline.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate teste_deadline.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make clean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+gcc -Wall -Wextra -std=c11 -O2 -o scheduler scheduler.o
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate teste_deadline.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate teste_deadline.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ ./scheduler rate teste_deadline.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmake[K clean./scheduler rate teste_deadline.txt[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cmake[K[1Ppwdwhoami[2Pdateexitmake clean[Kcleanpwd[Kwhoami[2Pdatecode .d vgjda2[80@git clone https://github.com/vitoriaduran/Escalonamento-de-tarefas-cr-ticas-de-voo[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[35Prm -rf [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~[Kvgjda2git clone https://github.com/vitoriaduran/Escalonamento-de-tarefas-cr-ticas-de-voo[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~[K && rm -rf ~/vgjda2ode .[Kmkdir vgjda2[Kcd Escalonamento-de-tarefas-cr-ticas-de-voo[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[39@git clone https://github.com/vitoriaduran/[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccd ~/vgjda2[K[K[K[K[K[K[K[K[K[K[K[K[7m# Compila ativando a flag de depuração[27m
+[7mgcc -Wall -Wextra -std=c11 -DDEBUG_TRACE scheduler.c -o scheduler[27m
+
+[7m# Executa o teste[27m
+[7m./scheduler rate teste_deadline.txt[27m[A[A[A[A# Compila ativando a flag de depuração
+gcc -Wall -Wextra -std=c11 -DDEBUG_TRACE scheduler.c -o scheduler
+
+# Executa o teste
+[1P./scheduler rate teste_deadline.tx[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7mgcc -Wall -Wextra -std=c11 -DDEBUG_TRACE scheduler.c -o scheduler[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgcc -Wall -Wextra -std=c11 -DDEBUG_TRACE scheduler.c -o scheduler
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate teste_deadline.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate teste_deadline.txt
+[?2004l--- trace de depuracao ---
+t=0 T_Alta
+t=1 T_Alta
+t=2 T_Alta
+t=3 T_Alta
+t=4 T_Alta
+t=5 T_Alta
+t=6 T_Baixa
+t=7 T_Baixa
+t=8 T_Baixa
+t=9 T_Baixa
+t=10 T_Alta
+t=11 T_Alta
+t=12 T_Alta
+t=13 T_Alta
+t=14 T_Alta
+t=15 T_Alta
+t=16 T_Baixa
+t=17 T_Baixa
+t=18 T_Baixa
+t=19 T_Baixa
+[T_Alta] perdidos=0 completas=2 mortas=0
+[T_Baixa] perdidos=0 completas=0 mortas=1
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ exite[K
+[?2004lexit
+
+Script done on 2026-09-04 13:53:28-03:00 [COMMAND_EXIT_CODE="0"]

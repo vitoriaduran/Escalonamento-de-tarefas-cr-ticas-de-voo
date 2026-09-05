@@ -370,7 +370,7 @@ int main(int argc, char *argv[]){
     unsigned long long *perdeu_em = calloc((size_t)tempo_total, sizeof(unsigned long long));
 
 
-    if (quem_executou == NULL) {
+    if (quem_executou == NULL || concluiu_em == NULL || perdeu_em == NULL) {
         fprintf(stderr, "Erro: memoria insuficiente para simular %d instantes\n", tempo_total);
         free(quem_executou);
         free(concluiu_em);

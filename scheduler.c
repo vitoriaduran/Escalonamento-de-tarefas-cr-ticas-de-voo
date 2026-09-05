@@ -189,7 +189,7 @@ static int tem_prioridade_maior(const char *algoritmo, const Tarefa tarefas[], c
     return tarefas[i].indice_ordem < tarefas[j].indice_ordem;
 }
 
-static void simular(const char *algoritmo, const Tarefa tarefas[], int num_tarefas, int tempo_total, int *quem_executou, EstadoTarefa estados[], EstatisticaTarefa stats[]) {
+static void simular(const char *algoritmo, const Tarefa tarefas[], int num_tarefas, int tempo_total, int *quem_executou, unsigned long long *concluiu_em, unsigned long long *perdeu_em, EstadoTarefa estados[], EstatisticaTarefa stats[]) {
     for (int i = 0; i < num_tarefas; i++) {
         estados[i].chegou = 0;
         estados[i].rajada_restante = 0;
@@ -209,6 +209,7 @@ static void simular(const char *algoritmo, const Tarefa tarefas[], int num_taref
             if (estados[i].chegou && estados[i].rajada_restante > 0 && estados[i].prazo_absoluto == t) {
                 stats[i].prazo_perdidos++; // Incrementa a falha de deadline registrada no instante t
                 estados[i].chegou = 0;// Invalida a instancia antiga que nao concluiu a tempo
+                perdeu_em[t] |= (1ULL << i);
             }
         }
 
@@ -243,7 +244,8 @@ static void simular(const char *algoritmo, const Tarefa tarefas[], int num_taref
             // Se a rajada chegou a zero, a tarefa concluiu sua execucao dentro do prazo
             if (estados[selecionada].rajada_restante == 0) {
                 stats[selecionada].execucoes_completas++; 
-                estados[selecionada].chegou = 0;           
+                estados[selecionada].chegou = 0;          
+                concluiu_em[t] |= (1ULL << selecionada); 
             }
         }
     }
@@ -380,7 +382,7 @@ int main(int argc, char *argv[]){
     EstatisticaTarefa stats[MAX_TAREFAS];
 
     
-    simular(algoritmo, tarefas, num_tarefas, tempo_total, quem_executou, estados, stats);
+    simular(algoritmo, tarefas, num_tarefas, tempo_total, quem_executou, concluiu_em, perdeu_em, estados, stats);
 
 #ifdef DEBUG_TRACE
     fprintf(stderr, "--- trace de depuracao ---\n");

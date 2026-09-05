@@ -369,3 +369,41 @@ KILLED
 [?2004lexit
 
 Script done on 2026-09-05 08:42:31-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-05 08:51:49-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="201" LINES="8"]
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ date
+[?2004lSat Sep  5 08:51:52 -03 2026
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pw[K[Kwhoami
+[?2004lgabyv
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pws[Kd
+[?2004l/home/gabyv/vgjda2
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make clean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+gcc -Wall -Wextra -std=c11 -O2 -o scheduler scheduler.o
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate entrada.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate entrada.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat rate_vgjda2.out[27mcat rate_vgjda2.out
+[?2004lEXECUTION BY RATE
+[T1] for 2 units - F
+[T2] for 3 units - F
+[T1] for 2 units - F
+[T2] for 3 units - F
+[T1] for 2 units - F
+idle for 2 units
+[T2] for 1 units - H
+[T1] for 2 units - F
+[T2] for 2 units - F
+idle for 1 units
+LOST DEADLINES
+[T1] 0
+[T2] 0
+COMPLETE EXECUTION
+[T1] 4
+[T2] 3
+KILLED
+[T1] 0
+[T2] 0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-05 08:59:38-03:00 [COMMAND_EXIT_CODE="0"]

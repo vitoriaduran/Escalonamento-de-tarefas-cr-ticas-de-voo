@@ -4,7 +4,7 @@ Aluna: Vitória Gabrielle Janeiro Duran (login: vgjda2)
 Disciplina: Infraestrutura de Software — Implementação 3
 
 ## Sistema operacional utilizado
-<!-- TODO: preencha com o SO real usado no desenvolvimento, ex: "Ubuntu 22.04 LTS" ou "Ubuntu 24.04 via WSL2" -->
+Ubuntu 24.04 LTS via WSL2 (Windows Subsystem for Linux)
 
 ## Arquivos
 - `scheduler.c` — arquivo único com toda a implementação:

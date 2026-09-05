@@ -279,3 +279,93 @@ t=19 idle
 [?2004lexit
 
 Script done on 2026-09-04 15:24:17-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-05 08:26:55-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="90" LINES="5"]
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ e[Kdate
+[?2004lSat Sep  5 08:26:58 -03 2026
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ evidencias[K[K[K[K[K[K[K[K[K[Kwhoami
+[?2004lgabyv
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pwd
+[?2004l/home/gabyv/vgjda2
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ mak [Ke clean
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+In function ‘[01m[Kescrever_saida[m[K’,
+    inlined from ‘[01m[Kmain[m[K’ at [01m[Kscheduler.c:401:24[m[K:
+[01m[Kscheduler.c:303:28:[m[K [01;35m[Kwarning: [m[K‘[01m[K*<unknown>[m[K’ may be used uninitialized [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wmaybe-uninitialized-Wmaybe-uninitialized]8;;[m[K]
+  303 |             if ([01;35m[Kconcluiu_em[fim][m[K & (1ULL << tarefa_atual)){
+      |                 [01;35m[K~~~~~~~~~~~^~~~~[m[K
+[01m[Kscheduler.c:307:57:[m[K [01;35m[Kwarning: [m[K‘[01m[K*<unknown>[m[K’ may be used uninitialized [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc-15.2.0/gcc/Warning-Options.html#index-Wmaybe-uninitialized-Wmaybe-uninitialized]8;;[m[K]
+  307 |             else if (fim + 1 < tempo_total && ([01;35m[Kperdeu_em[fim + 1][m[K & (1ULL << tarefa_atual))){
+      |                                                [01;35m[K~~~~~~~~~^~~~~~~~~[m[K
+gcc -Wall -Wextra -std=c11 -O2 -o scheduler scheduler.o
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make clean [K
+[?2004lrm -f scheduler.o scheduler *.out
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make
+[?2004lgcc -Wall -Wextra -std=c11 -O2 -c scheduler.c -o scheduler.o
+gcc -Wall -Wextra -std=c11 -O2 -o scheduler scheduler.o
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate entrada.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate entrada.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ cate taye[K[K[K[Kre[Kate_vh[Kgjda2.out
+[?2004lCommand 'cate' not found, did you mean:
+  command 'kate' from deb kate (4:25.12.3-0ubuntu1)
+  command 'late' from deb late (0.1.0-15)
+  command 'date' from deb coreutils-from-gnu (0.0.0~ubuntu25)
+  command 'date' from deb coreutils-from-uutils (0.0.0~ubuntu25)
+  command 'date' from deb coreutils-from-busybox (0.0.0~ubuntu25)
+  command 'date' from deb coreutils-from-toybox (0.0.0~ubuntu25)
+  command 'cfte' from deb fte (0.50.2b6-20110708-8)
+  command 'care' from deb care (5.4.0-3)
+  command 'cat' from deb coreutils-from-gnu (0.0.0~ubuntu25)
+  command 'cat' from deb coreutils-from-uutils (0.0.0~ubuntu25)
+  command 'cat' from deb coreutils-from-busybox (0.0.0~ubuntu25)
+  command 'cat' from deb coreutils-from-toybox (0.0.0~ubuntu25)
+  command 'catm' from deb mescc-tools (1.5.2-1ubuntu2)
+  command 'cage' from deb cage (0.2.1-1)
+Try: sudo apt install <deb name>
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ cat rate_vgk[Kjda2.out
+[?2004lEXECUTION BY RATE
+[T1] for 2 units - H
+[T2] for 3 units - H
+[T1] for 2 units - H
+[T2] for 3 units - H
+[T1] for 2 units - H
+idle for 2 units
+[T2] for 1 units - H
+[T1] for 2 units - H
+[T2] for 2 units - H
+idle for 1 units
+LOST DEADLINES
+[T1] 0
+[T2] 0
+COMPLETE EXECUTION
+[T1] 4
+[T2] 3
+KILLED
+[T1] 0
+[T2] 0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler edf entrada.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler edf entrada.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ cat edf_vgjda2.out
+[?2004lEXECUTION BY EDF
+[T1] for 2 units - H
+[T2] for 3 units - H
+[T1] for 2 units - H
+[T2] for 3 units - H
+[T1] for 2 units - H
+idle for 2 units
+[T2] for 1 units - H
+[T1] for 2 units - H
+[T2] for 2 units - H
+idle for 1 units
+LOST DEADLINES
+[T1] 0
+[T2] 0
+COMPLETE EXECUTION
+[T1] 4
+[T2] 3
+KILLED
+[T1] 0
+[T2] 0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [K]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ exit
+[?2004lexit
+
+Script done on 2026-09-05 08:42:31-03:00 [COMMAND_EXIT_CODE="0"]

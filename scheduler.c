@@ -6,6 +6,7 @@
 
 #define TAMANHO_NOME 32
 #define MAX_TAREFAS 64
+#define LOGIN "vgjda2"
 
 typedef struct {
     char nome[TAMANHO_NOME];
@@ -254,12 +255,97 @@ static void simular(const char *algoritmo, const Tarefa tarefas[], int num_taref
     }
 }
 
+//copia o algoritmo em maisculas p/ saida 
+static void para_maiusculas(const char *algoritmo, char *saida, size_t tam) {
+    size_t i = 0;
+    for (; algoritmo[i] != '\0' && i + 1 < tam; i++) {
+        saida[i] = (char)toupper((unsigned char)algoritmo[i]);
+    }
+    saida[i] = '\0';
+}
+
+//percorre quem_executou agrupando instantes consecutivos na mesma tarefa
+static int escrever_saida(const char *algoritmo, const Tarefa tarefas[], int num_tarefas, int tempo_total, const int *quem_executou, const unsigned long long *concluiu_em, const unsigned long long *perdeu_em, const EstatisticaTarefa stats[]){
+    char caminho_saida[64];
+    snprintf(caminho_saida, sizeof(caminho_saida), "%s_%s.out", algoritmo, LOGIN);
+
+    FILE *fp = fopen(caminho_saida, "w");
+    if (fp == NULL) {
+
+        fprintf(stderr, "Erro: nao foi possivel criar o arquivo de saida '%s'\n", caminho_saida);
+        return 1;
+
+    }
+
+    char algoritmo_maiusc[16];
+    para_maiusculas(algoritmo, algoritmo_maiusc, sizeof(algoritmo_maiusc)); // Converte "rate" ou "edf" para "RATE" ou "EDF"
+    fprintf(fp, "EXECUTION BY %s\n", algoritmo_maiusc);
+
+    int t =0;
+    //avança no tempo agrupando os blocos continuos
+    while(t < tempo_total){
+        int tarefa_atual = quem_executou[t];
+        
+        int fim = t;
+        // Agrupa os instantes consecutivos em que a mesma tarefa continuou ocupando o processador
+        while (fim + 1 < tempo_total && quem_executou[fim + 1] == tarefa_atual){
+            fim ++;
+
+        }
+        int duracao = fim - t + 1;
+        //se for de tempo ocioso
+        if (tarefa_atual == -1){
+            fprintf(fp, "idle for %d units\n", duracao);
+        }else{
+            char motivo;
+
+            //caso F(terminou)
+            if (concluiu_em[fim] & (1ULL << tarefa_atual)){
+                motivo = 'F';
+            }
+            //caso L (perdido)
+            else if (fim + 1 < tempo_total && (perdeu_em[fim + 1] & (1ULL << tarefa_atual))){
+                motivo = 'L';
+            }
+            //caso H: nao conlcui nem estorou o prazo, foi interrompido
+            else{
+                motivo = 'H';
+            }
+
+            fprintf(fp, "[%s] for %d units - %c\n", tarefas[tarefa_atual].nome, duracao, motivo);
+        }
+        
+        t =  fim + 1;
+    }
+    //seçao de contadores finais do arquivo
+    fprintf(fp, "LOST DEADLINES\n");  
+    for (int i = 0; i < num_tarefas; i++){
+
+        fprintf(fp, "[%s] %d\n", tarefas[i].nome, stats[i].prazo_perdidos); 
+    }
+
+    fprintf(fp, "COMPLETE EXECUTION\n"); 
+    for (int i = 0; i < num_tarefas; i++){
+        fprintf(fp, "[%s] %d\n", tarefas[i].nome, stats[i].execucoes_completas); 
+
+    }
+
+    fprintf(fp, "KILLED\n"); 
+    for (int i = 0; i < num_tarefas; i++) {
+        fprintf(fp, "[%s] %d\n", tarefas[i].nome, stats[i].mortas);
+    
+    }
+
+    fclose(fp);
+    return 0;
+
+}
 int main(int argc, char *argv[]){
     if (argc != 3){
         fprintf(stderr, "Uso: %s <rate|edf> <arquivo_de_entrada>\n", argv[0]);
         return 1;
     }
-    //armazena os ponteitos p/ o nome do algoritimo e do arquivo passado na cli
+    //armazena os ponteitos p/ o nome do algoritmo e do arquivo passado na cli
     const char *algoritmo = argv[1];
     const char *caminho_entrada = argv[2];
 
@@ -278,8 +364,15 @@ int main(int argc, char *argv[]){
     }
 
     int *quem_executou = malloc(sizeof(int) * (size_t)tempo_total);
+    unsigned long long *concluiu_em = calloc((size_t)tempo_total, sizeof(unsigned long long));
+    unsigned long long *perdeu_em = calloc((size_t)tempo_total, sizeof(unsigned long long));
+
+
     if (quem_executou == NULL) {
         fprintf(stderr, "Erro: memoria insuficiente para simular %d instantes\n", tempo_total);
+        free(quem_executou);
+        free(concluiu_em);
+        free(perdeu_em);
         return 1;
     }
 
@@ -305,9 +398,13 @@ int main(int argc, char *argv[]){
     }
 #endif
 
+    int status_saida = escrever_saida(algoritmo, tarefas, num_tarefas, tempo_total, quem_executou, concluiu_em, perdeu_em, stats);
 
     (void)estados;
     free(quem_executou);
-    return 0;
+    free(concluiu_em);
+    free(perdeu_em);
+ 
+    return status_saida;
 
 }

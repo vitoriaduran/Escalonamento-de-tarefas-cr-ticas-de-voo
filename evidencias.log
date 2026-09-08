@@ -407,3 +407,119 @@ KILLED
 [?2004lexit
 
 Script done on 2026-09-05 08:59:38-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-09-05 11:05:35-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="177" LINES="8"]
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ day[Kte
+[?2004lSat Sep  5 11:05:39 -03 2026
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ whoami
+[?2004lgabyv
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ pwd
+[?2004l/home/gabyv/vgjda2
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat << 'EOF' > comparativo.txt[27m
+[7m20[27m
+[7mT1 5 5 2[27m
+[7mT2 7 7 4[27m
+[7mEOF[27m[A[A[A[A]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ cat << 'EOF' > comparativo.txt
+20
+T1 5 5 2
+T2 7 7 4
+EOF
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate comparativo.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate comparativo.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat rate_vgjda2.out[27mcat rate_vgjda2.out
+[?2004lEXECUTION BY RATE
+[T1] for 2 units - F
+[T2] for 3 units - H
+[T1] for 2 units - F
+[T2] for 3 units - H
+[T1] for 2 units - F
+[T2] for 1 units - F
+idle for 1 units
+[T2] for 1 units - H
+[T1] for 2 units - F
+[T2] for 3 units - F
+LOST DEADLINES
+[T1] 0
+[T2] 1
+COMPLETE EXECUTION
+[T1] 4
+[T2] 2
+KILLED
+[T1] 0
+[T2] 0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat rate_vgjda2.out[27m[1Pcat rate_vgjda2.ou[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7m./scheduler edf comparativo.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler edf comparativo.txt
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat edf_vgjda2.out[27mcat edf_vgjda2.out
+[?2004lEXECUTION BY EDF
+[T1] for 2 units - F
+[T2] for 4 units - F
+[T1] for 2 units - F
+[T2] for 4 units - F
+[T1] for 2 units - F
+[T2] for 1 units - H
+[T1] for 2 units - F
+[T2] for 3 units - F
+LOST DEADLINES
+[T1] 0
+[T2] 0
+COMPLETE EXECUTION
+[T1] 4
+[T2] 3
+KILLED
+[T1] 0
+[T2] 0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat << 'EOF' > limite_cem.txt[27m
+[7m10[27m
+[7mT1 5 5 2[27m
+[7mT2 10 10 6[27m
+[7mEOF[27m[A[A[A[A]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ cat << 'EOF' > limite_cem.txt
+10
+T1 5 5 2
+T2 10 10 6
+EOF
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate limite_cem.txt && cat rate_vgjda2.out[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate limite_cem.txt && cat rate_vgjda2.out
+[?2004lEXECUTION BY RATE
+[T1] for 2 units - F
+[T2] for 3 units - H
+[T1] for 2 units - F
+[T2] for 3 units - F
+LOST DEADLINES
+[T1] 0
+[T2] 0
+COMPLETE EXECUTION
+[T1] 2
+[T2] 1
+KILLED
+[T1] 0
+[T2] 0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler edf limite_cem.txt && cat edf_vgjda2.out[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler edf limite_cem.txt && cat edf_vgjda2.out
+[?2004lEXECUTION BY EDF
+[T1] for 2 units - F
+[T2] for 3 units - H
+[T1] for 2 units - F
+[T2] for 3 units - F
+LOST DEADLINES
+[T1] 0
+[T2] 0
+COMPLETE EXECUTION
+[T1] 2
+[T2] 1
+KILLED
+[T1] 0
+[T2] 0
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mcat << 'EOF' > invalido_c_maior_d.txt[27m
+[7m50[27m
+[7mT1 10 4 6[27m
+[7mEOF[27m[A[A[A]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ cat << 'EOF' > invalido_c_maior_d.txt
+50
+T1 10 4 6
+EOF
+[?2004l[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler rate invalido_c_maior_d.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler rate invalido_c_maior_d.txt
+[?2004lErro: tarefa 'T1' (linha 2) viola a restricao C <= D <= P
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mecho "Código de saída: $?"[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecho "Código de saída: $?"
+[?2004lCódigo de saída: 1
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7m./scheduler fifo comparativo.txt[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C./scheduler fifo comparativo.txt
+[?2004lErro: algoritmo 'fifo' invalido. Use 'rate' ou 'edf'.
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ [7mecho "Código de saída: $?"[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cecho "Código de saída: $?"
+[?2004lCódigo de saída: 1
+[?2004h]0;gabyv@Vitria: ~/vgjda2[01;32mgabyv@Vitria[00m:[01;34m~/vgjda2[00m$ make cle[K[K[K[K[K[K[K[Kexit
+[?2004lexit
+
+Script done on 2026-09-05 11:09:10-03:00 [COMMAND_EXIT_CODE="0"]

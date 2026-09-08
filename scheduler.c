@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 #define TAMANHO_NOME 32
-#define MAX_TAREFAS 64
+#define MAX_TAREFAS 256
 #define LOGIN "vgjda2"
 
 typedef struct {
@@ -105,7 +105,7 @@ int analisar_arquivo_entrada (const char *caminho, int *tempo_total, Tarefa tare
         char nome[TAMANHO_NOME];
         char periodo_temp[32], prazo_temp[32], rajada_temp[32];
 
-        int campos = sscanf(aparada, "%31s %31s %31s %31s", nome, periodo_temp, prazo_temp, rajada_temp);
+        int campos = sscanf(aparada, "%31s %31s %31s %31s%n", nome, periodo_temp, prazo_temp, rajada_temp);
 
         //se o scanf nao leu exatamente os 4 valores
         if (campos != 4){
